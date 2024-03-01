@@ -1,0 +1,64 @@
+import java.util.Scanner;
+
+public class Pilha {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int[] pilha = new int[10];
+        int topoPilha = 0;
+        int opcao;
+        int elemento;
+
+        do {
+            limparTela();
+            System.out.println("Qual operacao deseja realizar?");
+            System.out.println("1- Empilhar");
+            System.out.println("2- Desempilhar");
+            System.out.println("3- Mostrar o topo");
+            System.out.println("4- Listar");
+            System.out.println("0- Sair");
+            opcao = scanner.nextInt();
+
+            switch (opcao) {
+                case 1:
+                    if (topoPilha < 10) {
+                        System.out.println("Digite o numero para empilhar: ");
+                        elemento = scanner.nextInt();
+                        topoPilha++;
+                        pilha[topoPilha] = elemento;
+                    } else {
+                        System.out.println("Pilha cheia");
+                    }
+                    break;
+                case 2:
+                    if (topoPilha >= 1) {
+                        System.out.println("Elemento desempilhado: " + pilha[topoPilha]);
+                        topoPilha--;
+                    } else {
+                        System.out.println("Pilha vazia");
+                    }
+                    break;
+                case 3:
+                    if (topoPilha >= 1) {
+                        System.out.println("Topo da pilha: " + pilha[topoPilha]);
+                    } else {
+                        System.out.println("Pilha vazia");
+                    }
+                    break;
+                case 4:
+                    if (topoPilha >= 1) {
+                        System.out.print("Elementos da pilha: ");
+                        for (int i = topoPilha; i >= 1; i--) {
+                            System.out.print(pilha[i] + " ");
+                        }
+                        System.out.println();
+                    } else {
+                        System.out.println("Pilha vazia");
+                    }
+                    break;
+                default:
+                    if (opcao != 0) {
+                        System.out.println("Opcao invalida! Tente novamente.");
+                    }
+            }
+        } while (opcao != 0);
