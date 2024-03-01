@@ -1,0 +1,61 @@
+Algoritmo "semnome"
+
+Var
+   pilha: vetor[1..5] de inteiro
+   topo_pilha, opcao: inteiro
+   elemento: inteiro
+
+Inicio
+   topo_pilha <- 0
+
+   repita
+      limpatela
+      escreval("Qual operação deseja realizar?")
+      escreval("1- Empilhar")
+      escreval("2- Desempilhar")
+      escreval("3- Mostrar o topo")
+      escreval("4- Listar")
+      escreval("0- Sair")
+      leia(opcao)
+
+      caso opcao faca
+         1:
+            se (topo_pilha < 5) entao
+               escreval("Digite o número para empilhar: ")
+               leia(elemento)
+               topo_pilha <- topo_pilha + 1
+               pilha[topo_pilha] <- elemento
+            senao
+               escreval("Pilha cheia")
+            fimse
+         2:
+            se (topo_pilha >= 1) entao
+               escreval("Elemento desempilhado: ", pilha[topo_pilha])
+               topo_pilha <- topo_pilha - 1
+            senao
+               escreval("Pilha vazia")
+            fimse
+         3:
+            se (topo_pilha >= 1) entao
+               escreval("Topo da pilha: ", pilha[topo_pilha])
+            senao
+               escreval("Pilha vazia")
+            fimse
+         4:
+            se (topo_pilha >= 1) entao
+               escreval("Elementos da pilha: ")
+               para i de topo_pilha ate 1 passo -1 faca
+                  escreva(pilha[i], " ")
+               fimpara
+               escreval("")
+            senao
+               escreval("Pilha vazia")
+            fimse
+         senao:
+            se (opcao <> 0) entao
+               escreval("Opção inválida! Tente novamente.")
+            fimse
+      fimescolha
+
+   ate opcao = 0
+Fimalgoritmo
